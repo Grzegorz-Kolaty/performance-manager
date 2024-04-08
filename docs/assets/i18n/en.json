@@ -1,0 +1,77 @@
+{
+  "homepage": {
+    "hero_title": "Performance Manager",
+    "hero_subtitle": "A tool to advance your business.",
+    "get_started_button": "START",
+    "employee_happiness_prop": "99%",
+    "employee_happiness": "Employee Satisfaction",
+    "productivity_prop": "100%",
+    "productivity": "Work Efficiency",
+    "saved_money_prop": "$1M",
+    "saved_money": "Savings",
+    "author_name": "Andrzej Dopierala",
+    "author_role": "App Creator",
+    "footer_logo_alt": "Logo",
+    "footer_website": "certum.pl",
+    "footer_about_us": "About Us",
+    "footer_copyright": "Copyright © 2023 Certum",
+    "comment1": {
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis eos eveniet ex facere hic illum incidunt itaque obcaecati odit officiis provident, quaerat quasi, qui sit suscipit ullam unde voluptates voluptatibus.",
+      "author_name": "Andrzej Dopierala",
+      "author_role": "Company Author",
+      "image_src": "/assets/images/template.png",
+      "alt_text": "Alt text 1"
+    },
+    "comment2": {
+      "text": "Another sample comment.",
+      "author_name": "Jan Kowalski",
+      "author_role": "Another Author",
+      "image_src": "/assets/images/template.png",
+      "alt_text": "Alt text 2"
+    },
+    "comment3": {
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis eos eveniet ex facere hic illum incidunt itaque obcaecati odit officiis provident, quaerat quasi, qui sit suscipit ullam unde voluptates voluptatibus.",
+      "author_name": "Andrzej Dopierala",
+      "author_role": "Company Author",
+      "image_src": "/assets/images/template.png",
+      "alt_text": "Alt text 1"
+    }
+  },
+  "dashboard-list": {
+    "user_title": "Employee Evaluations",
+    "user_subtitle": "Below you'll find evaluations assigned by the supervisor."
+  },
+  "navbar": {
+    "login_button": "Log me in!",
+    "logout_button": "Log out",
+    "logged_in": "Logged in!",
+    "login": "Login?",
+    "search_placeholder": "Search",
+    "create_button": "Create a new form",
+    "no_user_data": "No user data"
+  },
+  "question": {
+    "form_button": "Submit answer",
+    "form_textarea_placeholder": "Justify your choice"
+  },
+  "fill-survey": {
+    "question": "Question",
+    "one_of": "out of",
+    "saveAnswer": "Submit answer"
+  },
+  "create-survey": {
+    "employeePageTitle": "Employee Page",
+    "supervisorPageTitle": "Supervisor Page",
+    "employeeQuestionPlaceholder": "Question for employee",
+    "userOptionTextPlaceholder": "User option content",
+    "pointsPlaceholder": "Points",
+    "supervisorQuestionPlaceholder": "Question for supervisor",
+    "supervisorOptionTextPlaceholder": "Supervisor option content",
+    "addUserOptionButton": "Add answer option",
+    "addSupervisorOptionButton": "Add supervisor option",
+    "removeThisQuestionButton": "Remove this question",
+    "submitThisQuestionButton": "Submit this question",
+    "addQuestionButton": "Add a question",
+    "addFirstQuestionButton": "Add the first question"
+  }
+}

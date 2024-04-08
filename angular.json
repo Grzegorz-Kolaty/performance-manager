@@ -22,7 +22,7 @@
                 "src/styles"
               ]
             },
-            "outputPath": "dist/",
+            "outputPath": "dist/performance-manager",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
