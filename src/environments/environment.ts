@@ -7,7 +7,7 @@ export const environment = {
     CLIENT_ID: "dc1aea2d-2982-4e88-8756-9cbc93936d3b",
     AUTHORITY:
       "https://login.microsoftonline.com/common/",
-    REDIRECT_URI: "/",
+    REDIRECT_URI: "/performance-manager/",
     POST_LOGOUT_URI: "/",
     SCOPES_ARRAY: [
       "GroupMember.Read.All",
