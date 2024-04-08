@@ -8,7 +8,7 @@ export const environment = {
     AUTHORITY:
       "https://login.microsoftonline.com/598be909-3497-4762-a128-e8e82e732db1",
     REDIRECT_URI: "https://grzegorz-kolaty.github.io/performance-manager/dashboard",
-    POST_LOGOUT_URI: "http://localhost:4200/home",
+    POST_LOGOUT_URI: "https://grzegorz-kolaty.github.io/performance-manager/home",
     SCOPES_ARRAY: [
       "user.read",
       "presence.read.all",
