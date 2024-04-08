@@ -9,7 +9,7 @@ import {DashboardComponent} from "./components/dashboard/components/dashboard.co
 export const ROUTES: Routes = [
   {
     path: "",
-    redirectTo: "home",
+    redirectTo: "dashboard",
     pathMatch: "full",
   },
   {
@@ -23,7 +23,6 @@ export const ROUTES: Routes = [
   {
     path: "dashboard",
     component: DashboardComponent,
-    canActivate: [MsalGuard],
   },
   // {
   //   path: "dashboard",
