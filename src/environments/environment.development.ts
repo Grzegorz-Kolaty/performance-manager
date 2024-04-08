@@ -7,8 +7,8 @@ export const environment = {
     CLIENT_ID: "dc1aea2d-2982-4e88-8756-9cbc93936d3b",
     AUTHORITY:
       "https://login.microsoftonline.com/common/",
-    REDIRECT_URI: "https://grzegorz-kolaty.github.io/performance-manager/dashboard",
-    POST_LOGOUT_URI: "https://grzegorz-kolaty.github.io/performance-manager/home",
+    REDIRECT_URI: "/",
+    POST_LOGOUT_URI: "/",
     SCOPES_ARRAY: [
       "GroupMember.Read.All",
       "People.Read",
