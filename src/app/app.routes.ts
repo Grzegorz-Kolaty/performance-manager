@@ -12,7 +12,7 @@ export const ROUTES: Routes = [
     pathMatch: "full",
   },
   {
-    path: "/performance-manager/home",
+    path: "home",
     component: HomeComponent,
   },
   {
@@ -20,7 +20,7 @@ export const ROUTES: Routes = [
     component: NoPermissionsComponent,
   },
   {
-    path: "performance-manager/dashboard",
+    path: "dashboard",
     loadChildren: () =>
       import("./components/dashboard/routes").then((m) => m.DASHBOARD_ROUTES),
     canActivate: [MsalGuard],
