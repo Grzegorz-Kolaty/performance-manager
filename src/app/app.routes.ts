@@ -4,6 +4,7 @@ import { MsalGuard } from "@azure/msal-angular";
 import { Role } from "./core/enums";
 import { ngxPermissionsGuard } from "ngx-permissions";
 import { NoPermissionsComponent } from "./components/no-permissions/no-permissions.component";
+import {DashboardComponent} from "./components/dashboard/components/dashboard.component";
 
 export const ROUTES: Routes = [
   {
@@ -21,10 +22,15 @@ export const ROUTES: Routes = [
   },
   {
     path: "dashboard",
-    loadChildren: () =>
-      import("./components/dashboard/routes").then((m) => m.DASHBOARD_ROUTES),
+    component: DashboardComponent,
     canActivate: [MsalGuard],
   },
+  // {
+  //   path: "dashboard",
+  //   loadChildren: () =>
+  //     import("./components/dashboard/routes").then((m) => m.DASHBOARD_ROUTES),
+  //   canActivate: [MsalGuard],
+  // },
   {
     path: "browse-forms",
     loadChildren: () =>
