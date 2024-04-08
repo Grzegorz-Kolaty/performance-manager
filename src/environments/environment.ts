@@ -6,7 +6,7 @@ export const environment = {
   MSAL: {
     CLIENT_ID: "f47c2497-b481-4902-b1e3-79ab38447a1a",
     AUTHORITY:
-      "https://login.microsoftonline.com/598be909-3497-4762-a128-e8e82e732db1",
+      "https://login.microsoftonline.com/3f77443f-2656-4db6-8393-d4e43483d682/",
     REDIRECT_URI: "https://grzegorz-kolaty.github.io/performance-manager/dashboard",
     POST_LOGOUT_URI: "https://grzegorz-kolaty.github.io/performance-manager/home",
     SCOPES_ARRAY: [
