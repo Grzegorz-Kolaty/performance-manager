@@ -4,7 +4,7 @@ export const environment = {
   EXCLUDED_URLS: ["./assets/", "/i18n", "https://graph.microsoft"],
   // Microsoft authenthication sh%t
   MSAL: {
-    CLIENT_ID: "3f77443f-2656-4db6-8393-d4e43483d682",
+    CLIENT_ID: "dc1aea2d-2982-4e88-8756-9cbc93936d3b",
     AUTHORITY:
       "https://login.microsoftonline.com/common/",
     REDIRECT_URI: "https://grzegorz-kolaty.github.io/performance-manager/dashboard",
