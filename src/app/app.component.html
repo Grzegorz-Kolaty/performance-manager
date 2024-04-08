@@ -1,0 +1,10 @@
+<app-nav></app-nav>
+<main>
+  @if (isAuthenticated) {
+    <app-sidebar></app-sidebar>
+  }
+  <div class="p-5 mx-auto container">
+    <router-outlet></router-outlet>
+  </div>
+</main>
+<app-footer></app-footer>

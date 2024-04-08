@@ -1,0 +1,173 @@
+@if (formsService.isProcessingSomething) {
+  <app-loading-spinner></app-loading-spinner>
+} @else {
+  @if (form && form.name && form.questions?.length) {
+    <div class="row">
+      <div class="col">
+        <h3 class="fw-normal mb-2">
+          <b>{{ form.name }}</b>
+        </h3>
+        <p class="my-1">
+          Data wygaśnięcia ankiety: {{ form.endTimestamp | date }}
+        </p>
+        <p>Wskaż najbardziej pasującą odpowiedz i podaj uzasadnienie</p>
+      </div>
+      @if (templateId) {
+        <div class="col d-flex justify-content-center align-items-center">
+          <a
+            [routerLink]="['/create-form/template/', templateId]"
+            class="btn btn-white border fw-medium border-2 border-primary text-nowrap text-primary rounded-4 py-2 px-4"
+          >
+            Wybieram ten szablon!
+          </a>
+        </div>
+      }
+    </div>
+  } @else {
+    <p>Formularz jeszcze nie ma dodanych pytań lub jest nieprawidłowy 😿</p>
+  }
+
+  <form [formGroup]="formGroup">
+    @for (question of form.questions; track question; let i = $index) {
+      <div class="row mt-5" [formGroupName]="i">
+        <h5 class="my-2">Pytanie {{ i + 1 }} z {{ form.questions?.length }}</h5>
+        <h4 class="my-3">{{ question.name }}</h4>
+        <!--      <hr />-->
+
+        <!--User Column-->
+        <div
+          class="col d-flex flex-column flex-nowrap justify-content-end m-2 rounded-4"
+          [ngClass]="!isUser ? 'bg-light p-5' : 'p-2'"
+        >
+          @if (!isUser) {
+            <h5 class="text-center mb-3">Pracownik</h5>
+          }
+
+          @if (question.options?.length) {
+            <label class="form-label" for="question{{ i }}">
+              {{
+                question.selectedUserOption ? "Wybrano opcję" : "Wybierz opcję"
+              }}
+            </label>
+
+            <div class="flex-grow-1">
+              @for (
+                option of question.options;
+                track option.id;
+                let u = $index
+              ) {
+                <div class="d-flex flex-row align-items-center fs-5 mb-3">
+                  <input
+                    [attr.name]="'question-' + i + '-user-' + u"
+                    type="radio"
+                    class="form-check-input"
+                    formControlName="selectedUserOption"
+                    [value]="option.id"
+                    id="question{{ i }}userOption{{ u }}"
+                  />
+                  <label
+                    class="form-check-label flex-grow-1"
+                    for="question{{ i }}userOption{{ u }}"
+                  >
+                    {{ option.content }}
+                  </label>
+                  <i *ngxPermissionsExcept="Role.user" class="text-muted ms-3">
+                    (+{{ option.points }}pkt)
+                  </i>
+                </div>
+              }
+            </div>
+          }
+
+          <label class="form-label" for="question{{ i }}userText">
+            {{ question.userText ? "Podane uzasadnienie" : "Uzasadnij wybór" }}
+          </label>
+          <textarea
+            class="form-control form-control-lg bg-light"
+            formControlName="userText"
+            id="question{{ i }}userText"
+            rows="3"
+            type="text"
+          ></textarea>
+          <button
+            (click)="saveAnswer(question, i)"
+            [disabled]="question.userText || !isUser || templateId"
+            class="btn btn-primary w-25 text-white py-2 px-4 my-3"
+          >
+            {{ question.userText ? "Zapisane" : "Zapisz" }}
+          </button>
+        </div>
+        <!--User Column-->
+
+        <!--Supervisor Column-->
+        <div
+          *ngxPermissionsExcept="Role.user"
+          class="col d-flex flex-column flex-nowrap justify-content-end p-5 m-2 rounded-4"
+        >
+          @if (!isUser) {
+            <h5 class="text-center mb-3">Przełożony</h5>
+          }
+          @if (question.supervisorOptions?.length) {
+            <label class="form-label" for="question{{ i }}">
+              {{
+                question.selectedUserOption ? "Wybrano opcję" : "Wybierz opcję"
+              }}
+            </label>
+
+            <div class="flex-grow-1">
+              @for (
+                option of question.supervisorOptions;
+                track option.id;
+                let u = $index
+              ) {
+                <div class="d-flex flex-row align-items-center fs-5 mb-3">
+                  <input
+                    [attr.name]="'question-' + i + '-supervisor-' + u"
+                    type="radio"
+                    class="form-check-input"
+                    formControlName="selectedSupervisorOption"
+                    [value]="option.id"
+                    id="question{{ i }}supervisorOption{{ u }}"
+                  />
+                  <label
+                    class="form-check-label flex-grow-1"
+                    for="question{{ i }}supervisorOption{{ u }}"
+                  >
+                    {{ option.content }}
+                  </label>
+                  <i *ngxPermissionsExcept="Role.user" class="text-muted ms-3">
+                    (+{{ option.points }}pkt)
+                  </i>
+                </div>
+              }
+            </div>
+          }
+
+          <label class="form-label" for="question{{ i }}supervisorText">
+            {{
+              question.supervisorText
+                ? "Podane uzasadnienie"
+                : "Uzasadnij wybór"
+            }}
+          </label>
+          <textarea
+            class="form-control form-control-lg bg-light"
+            formControlName="supervisorText"
+            id="question{{ i }}supervisorText"
+            rows="3"
+            type="text"
+          ></textarea>
+          <button
+            (click)="saveAnswer(question, i)"
+            [disabled]="!!question.supervisorText || isUser || templateId"
+            class="btn btn-primary w-25 text-white py-2 px-4 my-3"
+          >
+            {{ question.supervisorText ? "Zapisane" : "Zapisz" }}
+          </button>
+        </div>
+        <!--Supervisor Column-->
+      </div>
+      <hr />
+    }
+  </form>
+}

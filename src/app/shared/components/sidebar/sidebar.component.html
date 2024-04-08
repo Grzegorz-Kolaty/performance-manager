@@ -1,0 +1,62 @@
+<nav class="h-100 py-5 px-3 bg-white nav-pills fw-medium text-nowrap" id="menu">
+  <a
+    [routerLink]="['/dashboard']"
+    class="nav-link p-3"
+    routerLinkActive="active"
+  >
+    <i class="fs-4 bi bi-house fw-bold"></i>
+    @if (isVisible) {
+      <span class="fs-6 ms-3 text-dark">Dashboard</span>
+    }
+  </a>
+  <a
+    [routerLink]="['/browse-forms']"
+    class="nav-link p-3"
+    routerLinkActive="active"
+  >
+    <i class="fs-4 bi bi-clipboard fw-bold"></i>
+    @if (isVisible) {
+      <span class="fs-6 ms-3 text-dark">Browse surveys</span>
+    }
+  </a>
+  <a
+    [routerLink]="['/create-template']"
+    class="nav-link p-3"
+    routerLinkActive="active"
+  >
+    <i class="fs-4 bi bi-pen fw-bold"></i>
+    @if (isVisible) {
+      <span class="fs-6 ms-3 text-dark">Create template</span>
+    }
+  </a>
+  <a
+    [routerLink]="['/create-form']"
+    class="nav-link p-3"
+    routerLinkActive="active"
+  >
+    <i class="fs-4 bi bi-pencil-square fw-bold"></i>
+    @if (isVisible) {
+      <span class="fs-6 ms-3 text-dark">Create form</span>
+    }
+  </a>
+  <a
+    [routerLink]="['/fill-form']"
+    class="nav-link p-3"
+    routerLinkActive="active"
+  >
+    <i class="fs-4 bi bi-clipboard-check-fill fw-bold"></i>
+    @if (isVisible) {
+      <span class="fs-6 ms-3 text-dark">Fill survey</span>
+    }
+  </a>
+  <a
+    [routerLink]="['/settings']"
+    class="nav-link align-self-end p-3"
+    routerLinkActive="active"
+  >
+    <i class="fs-4 bi bi-gear-fill fw-bold"></i>
+    @if (isVisible) {
+      <span class="fs-6 ms-3 text-dark">Settings</span>
+    }
+  </a>
+</nav>

@@ -1,0 +1,114 @@
+@if (mode === "submission") {
+  @if (questionsService.questions$ | async; as questions) {
+    @if (questionsService.isProcessingSomething) {
+      <app-loading-spinner></app-loading-spinner>
+    } @else {
+      @if (!questions.length) {
+        <p class="my-3">Brak pytań dodanych do szablonu 😿</p>
+      } @else {
+        <div class="row justify-content-start text-break">
+          @for (question of questions; track question) {
+            @if (
+              templatesService.submittedQuestionsIds$.value.includes(
+                question.id
+              )
+            ) {
+              <div class="col-3 form-box rounded-4 m-4 position-relative">
+                <button
+                  (click)="
+                    templatesService.removeQuestionFromSubmission(question.id)
+                  "
+                  class="btn btn-lg btn-sm text-danger position-absolute top-0 end-0 rounded-4"
+                  type="button"
+                >
+                  <i class="bi bi-x-lg fs-6"></i>
+                </button>
+                <div class="text-center border-bottom">
+                  <h5 class="my-3 fw-light">
+                    {{ question.name }}
+                  </h5>
+                </div>
+
+                <div class="h-50 w-100 my-3 overflow-y-auto row">
+                  @for (option of question.options; track option) {
+                    <div class="col-10 my-2">
+                      <p>{{ option.content }}</p>
+                    </div>
+                    <div class="col-2 my-2">
+                      <p>+{{ option.points }}</p>
+                    </div>
+                  }
+                </div>
+
+                <button
+                  disabled
+                  class="btn btn-lg btn-primary text-white"
+                  type="button"
+                >
+                  Zapisane
+                </button>
+              </div>
+            }
+          }
+        </div>
+      }
+    }
+  }
+} @else {
+  @if (questionsService.questions$ | async; as questions) {
+    @if (questionsService.isProcessingSomething) {
+      <app-loading-spinner></app-loading-spinner>
+    } @else {
+      @if (!questions.length) {
+        <p class="my-3">Brak pytań 😿</p>
+      } @else {
+        <div class="row justify-content-start text-break">
+          @for (question of questions; track question) {
+            <div class="col-3 form-box rounded-4 m-4">
+              <div class="text-center border-bottom">
+                <h5 class="my-3 fw-light">
+                  {{ question.name }}
+                </h5>
+              </div>
+
+              <div class="h-50 w-100 my-3 overflow-y-auto row">
+                @for (option of question.options; track option) {
+                  <div class="col-10 my-2">
+                    <p>{{ option.content }}</p>
+                  </div>
+                  <div class="col-2 my-2">
+                    <p>+{{ option.points }}</p>
+                  </div>
+                }
+              </div>
+
+              @if (
+                templatesService.submittedQuestionsIds$.value.includes(
+                  question.id
+                )
+              ) {
+                <button
+                  disabled
+                  class="btn btn-lg btn-primary text-white"
+                  type="button"
+                >
+                  Zapisane
+                </button>
+              } @else {
+                <button
+                  (click)="
+                    templatesService.addQuestionToSubmission(question.id)
+                  "
+                  class="btn btn-lg btn-primary text-white"
+                  type="button"
+                >
+                  Dodaj
+                </button>
+              }
+            </div>
+          }
+        </div>
+      }
+    }
+  }
+}

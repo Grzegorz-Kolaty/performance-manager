@@ -1,0 +1,30 @@
+<form [formGroup]="categoryCreator" class="row align-items-center gap-2">
+  <div class="col-7">
+    <label class="form-label" for="categoryName">
+      Wprowadź nazwę kategorii:
+    </label>
+    <div class="input-group input-group-lg mb-3">
+      <input
+        aria-label="Search survey"
+        autocomplete="off"
+        class="form-control"
+        formControlName="text"
+        id="categoryName"
+        placeholder="np. Wydajność"
+        type="text"
+      />
+    </div>
+  </div>
+  <div class="col text-center">
+    <button
+      (click)="
+        categoriesService.createNewCategory(categoryCreator.value['text'])
+      "
+      [disabled]="categoriesService.isProcessingSomething"
+      class="btn btn-lg btn-white border fw-medium border-2 border-primary text-nowrap text-primary rounded-4"
+      type="button"
+    >
+      Utwórz nową kategorię
+    </button>
+  </div>
+</form>

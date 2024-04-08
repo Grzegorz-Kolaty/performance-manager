@@ -1,0 +1,84 @@
+{
+  "homepage": {
+    "hero_title": "Performance Manager",
+    "hero_subtitle": "Prosta aplikacja która pomoże rozwinąć się Twojej firmie!",
+    "get_started_button": "GET STARTED",
+    "employee_happiness_prop": "99%",
+    "employee_happiness": "Szczęśliwość pracowników",
+    "productivity_prop": "100%",
+    "productivity": "Wzrost roduktywności",
+    "saved_money_prop": "$1 mln",
+    "saved_money": "Zaoszczędzone pieniądze",
+    "author_name": "Andrzej Dopierala",
+    "author_role": "Autor firmy",
+    "footer_logo_alt": "Template",
+    "footer_website": "certum.pl",
+    "footer_about_us": "O firmie",
+    "footer_copyright": "Copyright © 2023 Certum",
+    "comment1": {
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis eos eveniet ex facere hic illum incidunt itaque obcaecati odit officiis provident, quaerat quasi, qui sit suscipit ullam unde voluptates voluptatibus.",
+      "author_name": "Andrzej Dopierala",
+      "author_role": "Autor firmy",
+      "image_src": "/assets/images/template.png",
+      "alt_text": "Alt tekst 1"
+    },
+    "comment2": {
+      "text": "Kolejny przykładowy komentarz.",
+      "author_name": "Jan Kowalski",
+      "author_role": "Inny autor",
+      "image_src": "/assets/images/template.png",
+      "alt_text": "Alt tekst 2"
+    },
+    "comment3": {
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis eos eveniet ex facere hic illum incidunt itaque obcaecati odit officiis provident, quaerat quasi, qui sit suscipit ullam unde voluptates voluptatibus.",
+      "author_name": "Andrzej Dopierala",
+      "author_role": "Autor firmy",
+      "image_src": "/assets/images/template.png",
+      "alt_text": "Alt tekst 1"
+    }
+  },
+  "dashboard-list": {
+    "user_title": "Oceny pracownicze",
+    "user_subtitle": "Poniżej znajdziesz listę ocen zleconych przez przełożonego",
+    "supervisor_title": "Formularze pracowników",
+    "supervisor_subtitle": "Poniżej znajdziesz listę formularzy pracowników"
+  },
+  "navbar": {
+    "login_button": "Zaloguj",
+    "logout_button": "Wyloguj",
+    "search_placeholder": "Wyszukaj",
+    "create_button": "Utwórz nowy formularz",
+    "no_user_data": "Brak danych użytkownika"
+  },
+  "question": {
+    "form_button": "Zatwierdź odpowiedź",
+    "form_textarea_placeholder": "Uzasadnij wybór"
+  },
+  "fill-survey": {
+    "question": "Pytanie",
+    "one_of": "z",
+    "saveAnswer": "Zatwierdź odpowiedź",
+    "justifyChecked": "<uzasadnij zaznaczone pola>",
+    "sumbitAnswer": "Wyślij odpowiedź"
+  },
+  "create-survey": {
+    "addFormName": "Wprowadź nazwę formularza",
+    "namePlaceholder": "ZUC / DRU / PUB",
+    "addFormDate": "Kliknij aby wprowadzić datę",
+    "userQuestionPlaceholder": "<wprowadź pytanie do pracownika>",
+    "userOptionTextPlaceholder": "Treść opcji użytkownika",
+    "pointsPlaceholder": "Punkty",
+    "supervisorQuestionPlaceholder": "<wprowadź pytanie do przełożonego>",
+    "supervisorOptionTextPlaceholder": "Treść opcji przełożonego",
+    "addUserOptionButton": "Dodaj opcje odpowiedzi",
+    "addSupervisorOptionButton": "Dodaj opcję przełożonego",
+    "removeThisQuestionButton": "Usuń to pytanie",
+    "submitThisQuestionButton": "Wyślij to pytanie",
+    "addQuestionButton": "Dodaj pytanie",
+    "addFirstQuestionButton": "Dodaj pierwsze pytanie",
+    "submitFormButton": "Wyślij formularz"
+  },
+  "submit-modal": {
+    "formName": "Nazwa ankiety: "
+  }
+}

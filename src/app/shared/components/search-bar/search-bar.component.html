@@ -1,0 +1,16 @@
+@if (mode) {
+  <form (ngSubmit)="onSearchSubmit(searchInput.value)">
+    <div class="input-group input-group-lg mb-3">
+      <span class="input-group-text">
+        <i class="bi bi-search"></i>
+      </span>
+      <input
+        #searchInput
+        aria-label="Search"
+        class="form-control"
+        placeholder="Wprowadź nazwę"
+        type="text"
+      />
+    </div>
+  </form>
+}

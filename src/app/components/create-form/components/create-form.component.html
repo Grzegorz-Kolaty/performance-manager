@@ -1,0 +1,92 @@
+<h3>Szablony</h3>
+
+<div class="btn-group btn-group-lg mb-3">
+  <a
+    [class.active]="!selectedTemplate"
+    [routerLink]="['/create-form']"
+    class="btn"
+    routerLinkActive="active"
+  >
+    Przeglądaj szablony
+  </a>
+  <a
+    [class.active]="selectedTemplate"
+    [class.disabled]="!selectedTemplate"
+    class="btn"
+  >
+    Utwórz ankietę z szablonu
+    @if (selectedTemplate) {
+      <b>{{ selectedTemplate.name }}</b>
+    }
+  </a>
+</div>
+
+@switch (currentView) {
+  @case ("browseTemplates") {
+    <app-search-bar [mode]="'template'"></app-search-bar>
+
+    <app-template></app-template>
+  }
+  @case ("createFormFromTemplate") {
+    <form [formGroup]="formCreator" (ngSubmit)="submitForm()" class="row">
+      <div class="row">
+        <div class="form-group col m-3">
+          <label class="form-label" for="name">Wprowadź nazwę ankiety</label>
+          <input
+            aria-describedby="formName"
+            class="form-control bg-light-subtle"
+            formControlName="name"
+            id="name"
+            required
+            type="text"
+            autocomplete="off"
+          />
+        </div>
+        <div class="form-group col m-3">
+          <label class="form-label" for="date">
+            Oznacz datę rozpoczęcia i zakończenia ankiety
+          </label>
+          <input
+            (bsValueChange)="onDatePickerValueChange($event)"
+            bsDaterangepicker
+            class="form-control"
+            placeholder="Wskaż datę rozpoczęcia i zakończenia ankiety"
+            type="text"
+            id="date"
+            [minDate]="today"
+            autocomplete="off"
+          />
+        </div>
+      </div>
+
+      <div class="col m-3">
+        <label class="form-label">Wybierz użytkowników</label>
+        <mgt-people-picker
+          #mgtPicker
+          type="person"
+          (selectionChanged)="handleSelectionChanged($event)"
+          user-filters="not startsWith(displayName,'disabled') and endsWith(mail,'@assecods.pl') and givenName ne null"
+          user-type="user"
+        ></mgt-people-picker>
+      </div>
+
+      <div class="row my-3 justify-content-center">
+        <button
+          [disabled]="
+            (!formCreator.controls.startTimestamp.value &&
+              !formCreator.controls.endTimestamp.value) ||
+            formsService.isProcessingSomething
+          "
+          class="btn btn-white border w-25 fw-medium border-2 border-primary text-nowrap text-primary rounded-4 py-2 px-4 my-2"
+          type="submit"
+          id="create-form"
+        >
+          Utwórz ankietę
+        </button>
+        <label class="form-label text-center" for="create-form">
+          Utworzenie formularza przekaże go wskazanym użytkownikom.
+        </label>
+      </div>
+    </form>
+  }
+}

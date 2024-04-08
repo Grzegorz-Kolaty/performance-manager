@@ -1,0 +1,92 @@
+<h3>Ustawienia</h3>
+
+<div class="btn-group btn-group-lg mb-3">
+  <button
+    (click)="setCurrentView('profile')"
+    [class.active]="currentView === 'profile'"
+    class="btn"
+  >
+    <span>Twój profil</span>
+  </button>
+  <button
+    (click)="setCurrentView('manage')"
+    [class.active]="currentView === 'manage'"
+    class="btn"
+  >
+    <span>Zarządzaj uprawnieniami</span>
+  </button>
+</div>
+
+@switch (currentView) {
+  @case ("profile") {
+    <div class="col-4">
+      <mgt-person-card class="person-card" person-query="me"></mgt-person-card>
+      <h6 class="my-2">Uprawnienia</h6>
+      @for (role of userService.availableRoles; track role) {
+        <div class="d-flex flex-row align-items-center my-2">
+          <input
+            class="form-check-input fs-5"
+            type="checkbox"
+            [id]="role"
+            checked
+            disabled
+          />
+          <label class="form-check-label mx-2" [for]="role">
+            {{ role }}
+          </label>
+        </div>
+      }
+    </div>
+  }
+  @case ("manage") {
+    <div class="col-6">
+      <label class="form-label">Wskaż użytkownika</label>
+      <mgt-people-picker
+        #mgtPicker
+        type="person"
+        selection-mode="single"
+        (selectionChanged)="handleSelectionChanged($event)"
+        user-filters="not startsWith(displayName,'disabled') and endsWith(mail,'@assecods.pl') and givenName ne null"
+        user-type="user"
+      ></mgt-people-picker>
+    </div>
+
+    @if (roleForm.value["userId"]) {
+      <form [formGroup]="roleForm">
+        <div class="d-flex flex-row align-items-center my-2">
+          <input
+            class="form-check-input fs-5"
+            type="checkbox"
+            [formControlName]="Role.admin"
+            [id]="Role.admin"
+          />
+          <label class="form-check-label mx-2" [for]="Role.admin">
+            Admin Role
+          </label>
+        </div>
+        <div class="d-flex flex-row align-items-center my-2">
+          <input
+            class="form-check-input fs-5"
+            type="checkbox"
+            [formControlName]="Role.supervisor"
+            [id]="Role.supervisor"
+          />
+          <label class="form-check-label mx-2" [for]="Role.supervisor">
+            Supervisor Role
+          </label>
+        </div>
+        <div class="d-flex flex-row align-items-center my-2">
+          <input
+            class="form-check-input fs-5"
+            type="checkbox"
+            [formControlName]="Role.user"
+            [id]="Role.user"
+          />
+          <label class="form-check-label mx-2" [for]="Role.user">
+            User Role
+          </label>
+        </div>
+      </form>
+    }
+  }
+}
