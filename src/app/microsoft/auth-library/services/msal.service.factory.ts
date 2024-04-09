@@ -35,7 +35,7 @@ export class AccountService {
   }
 
   loginRedirect(): void {
-    const redirectStartPage = "performance-manager/dashboard";
+    const redirectStartPage = "dashboard";
     this.authService.instance.loginRedirect({
       redirectStartPage,
       ...this.msalGuardConfig.authRequest,

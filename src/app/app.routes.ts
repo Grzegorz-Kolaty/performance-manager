@@ -8,11 +8,11 @@ import {HomeComponent} from "./components/home/home.component";
 export const ROUTES: Routes = [
   {
     path: "",
-    redirectTo: "performance-manager/home",
+    redirectTo: "home",
     pathMatch: "full",
   },
   {
-    path: "performance-manager/home",
+    path: "home",
     component: HomeComponent,
   },
   // {
@@ -20,11 +20,11 @@ export const ROUTES: Routes = [
   //   component: NoPermissionsComponent,
   // },
   {
-    path: "performance-manager/no-permissions",
+    path: "no-permissions",
     loadComponent: () => import("./components/no-permissions/no-permissions.component").then((m) => m.NoPermissionsComponent)
   },
   {
-    path: "performance-manager/dashboard",
+    path: "dashboard",
     loadComponent: () => import("./components/dashboard/components/dashboard.component").then((m) => m.DashboardComponent)
   },
   // {
@@ -34,7 +34,7 @@ export const ROUTES: Routes = [
   //   canActivate: [MsalGuard],
   // },
   {
-    path: "performance-manager/browse-forms",
+    path: "browse-forms",
     loadComponent: () => import("./components/browse-surveys/components/browse-surveys.component").then((m) => m.BrowseSurveysComponent),
     // canActivate: [MsalGuard, ngxPermissionsGuard],
     // data: {
@@ -45,7 +45,7 @@ export const ROUTES: Routes = [
     // },
   },
   {
-    path: "performance-manager/create-template",
+    path: "create-template",
     loadComponent: () => import("./components/create-template/components/create-template.component").then((m) => m.CreateTemplateComponent),
     // canActivate: [MsalGuard, ngxPermissionsGuard],
     // data: {
@@ -56,7 +56,7 @@ export const ROUTES: Routes = [
     // },
   },
   {
-    path: "performance-manager/create-form/template/:templateId",
+    path: "create-form/template/:templateId",
     loadComponent: () => import("./components/create-form/components/create-form.component").then((m) => m.CreateFormComponent),
     // canActivate: [MsalGuard, ngxPermissionsGuard],
     // data: {
@@ -67,7 +67,7 @@ export const ROUTES: Routes = [
     // },
   },
   {
-    path: "performance-manager/create-form",
+    path: "create-form",
     loadComponent: () => import("./components/create-form/components/create-form.component").then((m) => m.CreateFormComponent),
     // canActivate: [MsalGuard, ngxPermissionsGuard],
     // data: {
@@ -78,7 +78,7 @@ export const ROUTES: Routes = [
     // },
   },
   {
-    path: "performance-manager/fill-form/template/:templateId",
+    path: "fill-form/template/:templateId",
     loadComponent: () => import("./components/fill-form/components/fill-form.component").then((m) => m.FillFormComponent),
     // canActivate: [MsalGuard, ngxPermissionsGuard],
     // data: {
@@ -89,7 +89,7 @@ export const ROUTES: Routes = [
     // },
   },
   {
-    path: "performance-manager/fill-form/form/:formId/user/:userId",
+    path: "fill-form/form/:formId/user/:userId",
     loadComponent: () => import("./components/fill-form/components/fill-form.component").then((m) => m.FillFormComponent),
     // canActivate: [MsalGuard, ngxPermissionsGuard],
     // data: {
@@ -100,7 +100,7 @@ export const ROUTES: Routes = [
     // },
   },
   {
-    path: "performance-manager/settings",
+    path: "settings",
     loadComponent: () => import("./components/settings/components/settings.component").then((m) => m.SettingsComponent),
     // canActivate: [MsalGuard, ngxPermissionsGuard],
     // data: {
@@ -112,6 +112,6 @@ export const ROUTES: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'performance-manager/home',
+    redirectTo: 'home',
   },
 ];
