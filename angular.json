@@ -33,12 +33,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/assets/i18n",
-              {
-                "glob": "**/*",
-                "input": "src/performance-manager/",
-                "output": "/performance-manager/"
-              }
+              "src/assets/i18n"
             ],
             "styles": [
               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
