@@ -13,15 +13,15 @@ export const ROUTES: Routes = [
     pathMatch: "full",
   },
   {
-    path: "home",
+    path: "/home",
     component: HomeComponent,
   },
   {
-    path: "no-permissions",
+    path: "/no-permissions",
     component: NoPermissionsComponent,
   },
   {
-    path: "dashboard",
+    path: "/dashboard",
     component: DashboardComponent,
   },
   // {
@@ -31,7 +31,7 @@ export const ROUTES: Routes = [
   //   canActivate: [MsalGuard],
   // },
   {
-    path: "browse-forms",
+    path: "/browse-forms",
     loadChildren: () =>
       import("./components/browse-surveys/routes").then(
         (m) => m.BROWSE_SURVEYS_ROUTES,
@@ -45,7 +45,7 @@ export const ROUTES: Routes = [
     },
   },
   {
-    path: "create-template",
+    path: "/create-template",
     loadChildren: () =>
       import("./components/create-template/routes").then(
         (m) => m.CREATE_SURVEY_ROUTES,
@@ -59,7 +59,7 @@ export const ROUTES: Routes = [
     },
   },
   {
-    path: "create-form/template/:templateId",
+    path: "/create-form/template/:templateId",
     loadChildren: () =>
       import("./components/create-form/routes").then(
         (m) => m.CREATE_FORM_ROUTES,
@@ -73,7 +73,7 @@ export const ROUTES: Routes = [
     },
   },
   {
-    path: "create-form",
+    path: "/create-form",
     loadChildren: () =>
       import("./components/create-form/routes").then(
         (m) => m.CREATE_FORM_ROUTES,
@@ -87,7 +87,7 @@ export const ROUTES: Routes = [
     },
   },
   {
-    path: "fill-form/template/:templateId",
+    path: "/fill-form/template/:templateId",
     loadChildren: () =>
       import("./components/fill-form/routes").then((m) => m.FILL_SURVEY_ROUTES),
     canActivate: [MsalGuard, ngxPermissionsGuard],
@@ -99,7 +99,7 @@ export const ROUTES: Routes = [
     },
   },
   {
-    path: "fill-form/form/:formId/user/:userId",
+    path: "/fill-form/form/:formId/user/:userId",
     loadChildren: () =>
       import("./components/fill-form/routes").then((m) => m.FILL_SURVEY_ROUTES),
     canActivate: [MsalGuard, ngxPermissionsGuard],
@@ -111,7 +111,7 @@ export const ROUTES: Routes = [
     },
   },
   {
-    path: "settings",
+    path: "/settings",
     loadChildren: () =>
       import("./components/settings/routes").then((m) => m.SETTINGS_ROUTES),
     canActivate: [MsalGuard, ngxPermissionsGuard],
