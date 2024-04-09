@@ -16,7 +16,7 @@ import {
 import { ApplicationConfig, importProvidersFrom } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgxPermissionsModule } from "ngx-permissions";
-import { provideRouter } from "@angular/router";
+import {PreloadAllModules, provideRouter, withDebugTracing, withPreloading} from "@angular/router";
 import { ROUTES } from "./app.routes";
 import {
   provideAnimations,
@@ -38,7 +38,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(ROUTES),
+    provideRouter(ROUTES, withPreloading(PreloadAllModules), withDebugTracing()),
     importProvidersFrom(
       BrowserModule,
       TranslateModule.forRoot({
