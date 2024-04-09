@@ -13,7 +13,7 @@ export const ROUTES: Routes = [
   },
   {
     path: "home",
-    component: HomeComponent,
+    loadComponent: () => import("./components/home/home.component").then((m) => m.HomeComponent)
   },
   // {
   //   path: "no-permissions",
