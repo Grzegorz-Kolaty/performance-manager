@@ -13,18 +13,17 @@ export const ROUTES: Routes = [
   },
   {
     path: "home",
-    loadComponent: () => import("./components/home/home.component").then((m) => m.HomeComponent),
-    data: { preload: true },
+    loadComponent: () => import("./components/home/home.component").then((m) => m.HomeComponent)
+    // data: { preload: true },
   },
   {
     path: "no-permissions",
     loadComponent: () => import("./components/no-permissions/no-permissions.component").then((m) => m.NoPermissionsComponent),
-    data: { preload: true },
-
+    // data: { preload: true },
   },
   {
     path: "dashboard",
-    loadComponent: () => import("./components/dashboard/components/dashboard.component").then((m) => m.DashboardComponent)
+    loadChildren: () => import("./components/dashboard/routes").then((m) => m.DASHBOARD_ROUTES)
   },
   // {
   //   path: "dashboard",
