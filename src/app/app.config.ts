@@ -38,7 +38,8 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(ROUTES, withPreloading(PreloadAllModules), withDebugTracing()),
+    provideRouter(ROUTES),
+    // provideRouter(ROUTES, withPreloading(PreloadAllModules), withDebugTracing()),
     importProvidersFrom(
       BrowserModule,
       TranslateModule.forRoot({
