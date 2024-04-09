@@ -1,5 +1,6 @@
 {
   "name": "frontend-performance-manager",
+  "homepage": "https://grzegorz-kolaty.github.io/performance-manager/",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
