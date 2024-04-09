@@ -8,20 +8,23 @@ import {HomeComponent} from "./components/home/home.component";
 export const ROUTES: Routes = [
   {
     path: "",
-    children: [
-      {
-        path: "home",
-        loadComponent: () => import("./components/home/home.component").then((m) => m.HomeComponent)
-      },
-      {
-        path: "no-permissions",
-        loadComponent: () => import("./components/no-permissions/no-permissions.component").then((m) => m.NoPermissionsComponent)
-      },
-      {
-        path: "dashboard",
-        loadComponent: () => import("./components/dashboard/components/dashboard.component").then((m) => m.DashboardComponent)
-      },
-    ]
+    redirectTo: "home",
+    pathMatch: "full",
+  },
+  {
+    path: "home",
+    loadComponent: () => import("./components/home/home.component").then((m) => m.HomeComponent),
+    data: { preload: true },
+  },
+  {
+    path: "no-permissions",
+    loadComponent: () => import("./components/no-permissions/no-permissions.component").then((m) => m.NoPermissionsComponent),
+    data: { preload: true },
+
+  },
+  {
+    path: "dashboard",
+    loadComponent: () => import("./components/dashboard/components/dashboard.component").then((m) => m.DashboardComponent)
   },
   // {
   //   path: "dashboard",
