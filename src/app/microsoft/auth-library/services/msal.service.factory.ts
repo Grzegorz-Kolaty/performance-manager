@@ -35,11 +35,16 @@ export class AccountService {
   }
 
   loginRedirect(): void {
-    const redirectStartPage = "dashboard";
-    this.authService.instance.loginRedirect({
-      redirectStartPage,
-      ...this.msalGuardConfig.authRequest,
-    } as RedirectRequest);
+    // const redirectStartPage = "dashboard";
+    // this.authService.instance.loginRedirect({
+    //   redirectStartPage,
+    //   ...this.msalGuardConfig.authRequest,
+    // } as RedirectRequest);
+    if (this.msalGuardConfig.authRequest){
+      this.authService.loginRedirect({...this.msalGuardConfig.authRequest} as RedirectRequest);
+    } else {
+      this.authService.loginRedirect();
+    }
   }
 
   //just in case if something in Microsoft Graph Toolkit will change
