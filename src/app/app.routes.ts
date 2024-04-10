@@ -1,5 +1,8 @@
 import {Routes} from "@angular/router";
 import {HomeComponent} from "./components/home/home.component";
+import {MsalGuard} from "@azure/msal-angular";
+import {ngxPermissionsGuard} from "ngx-permissions";
+import {Role} from "./core/enums";
 // import {MsalGuard} from "@azure/msal-angular";
 // import {Role} from "./core/enums";
 // import {ngxPermissionsGuard} from "ngx-permissions";
@@ -23,7 +26,8 @@ export const ROUTES: Routes = [
   },
   {
     path: "dashboard",
-    loadChildren: () => import("./components/dashboard/routes").then((m) => m.DASHBOARD_ROUTES)
+    loadChildren: () => import("./components/dashboard/routes").then((m) => m.DASHBOARD_ROUTES),
+    canActivate: [MsalGuard]
   },
   // {
   //   path: "dashboard",
@@ -34,79 +38,79 @@ export const ROUTES: Routes = [
   {
     path: "browse-forms",
     loadComponent: () => import("./components/browse-surveys/components/browse-surveys.component").then((m) => m.BrowseSurveysComponent),
-    // canActivate: [MsalGuard, ngxPermissionsGuard],
-    // data: {
-    //   permissions: {
-    //     only: [Role.user, Role.supervisor, Role.admin],
-    //     redirectTo: "/no-permissions",
-    //   },
-    // },
+    canActivate: [MsalGuard, ngxPermissionsGuard],
+    data: {
+      permissions: {
+        only: [Role.user, Role.supervisor, Role.admin],
+        redirectTo: "/no-permissions",
+      },
+    },
   },
   {
     path: "create-template",
     loadComponent: () => import("./components/create-template/components/create-template.component").then((m) => m.CreateTemplateComponent),
-    // canActivate: [MsalGuard, ngxPermissionsGuard],
-    // data: {
-    //   permissions: {
-    //     only: [Role.supervisor, Role.admin],
-    //     redirectTo: "/no-permissions",
-    //   },
-    // },
+    canActivate: [MsalGuard, ngxPermissionsGuard],
+    data: {
+      permissions: {
+        only: [Role.supervisor, Role.admin],
+        redirectTo: "/no-permissions",
+      },
+    },
   },
   {
     path: "create-form/template/:templateId",
     loadComponent: () => import("./components/create-form/components/create-form.component").then((m) => m.CreateFormComponent),
-    // canActivate: [MsalGuard, ngxPermissionsGuard],
-    // data: {
-    //   permissions: {
-    //     only: [Role.supervisor, Role.admin],
-    //     redirectTo: "/no-permissions",
-    //   },
-    // },
+    canActivate: [MsalGuard, ngxPermissionsGuard],
+    data: {
+      permissions: {
+        only: [Role.supervisor, Role.admin],
+        redirectTo: "/no-permissions",
+      },
+    },
   },
   {
     path: "create-form",
     loadComponent: () => import("./components/create-form/components/create-form.component").then((m) => m.CreateFormComponent),
-    // canActivate: [MsalGuard, ngxPermissionsGuard],
-    // data: {
-    //   permissions: {
-    //     only: [Role.supervisor, Role.admin],
-    //     redirectTo: "/no-permissions",
-    //   },
-    // },
+    canActivate: [MsalGuard, ngxPermissionsGuard],
+    data: {
+      permissions: {
+        only: [Role.supervisor, Role.admin],
+        redirectTo: "/no-permissions",
+      },
+    },
   },
   {
     path: "fill-form/template/:templateId",
     loadComponent: () => import("./components/fill-form/components/fill-form.component").then((m) => m.FillFormComponent),
-    // canActivate: [MsalGuard, ngxPermissionsGuard],
-    // data: {
-    //   permissions: {
-    //     only: [Role.user, Role.supervisor, Role.admin],
-    //     redirectTo: "/no-permissions",
-    //   },
-    // },
+    canActivate: [MsalGuard, ngxPermissionsGuard],
+    data: {
+      permissions: {
+        only: [Role.user, Role.supervisor, Role.admin],
+        redirectTo: "/no-permissions",
+      },
+    },
   },
   {
     path: "fill-form/form/:formId/user/:userId",
     loadComponent: () => import("./components/fill-form/components/fill-form.component").then((m) => m.FillFormComponent),
-    // canActivate: [MsalGuard, ngxPermissionsGuard],
-    // data: {
-    //   permissions: {
-    //     only: [Role.user, Role.supervisor, Role.admin],
-    //     redirectTo: "/no-permissions",
-    //   },
-    // },
+    canActivate: [MsalGuard, ngxPermissionsGuard],
+    data: {
+      permissions: {
+        only: [Role.user, Role.supervisor, Role.admin],
+        redirectTo: "/no-permissions",
+      },
+    },
   },
   {
     path: "settings",
     loadComponent: () => import("./components/settings/components/settings.component").then((m) => m.SettingsComponent),
-    // canActivate: [MsalGuard, ngxPermissionsGuard],
-    // data: {
-    //   permissions: {
-    //     only: [Role.admin],
-    //     redirectTo: "/no-permissions",
-    //   },
-    // },
+    canActivate: [MsalGuard, ngxPermissionsGuard],
+    data: {
+      permissions: {
+        only: [Role.admin],
+        redirectTo: "/no-permissions",
+      },
+    },
   },
   {
     path: '**',
