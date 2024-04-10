@@ -12,17 +12,17 @@ export const ROUTES: Routes = [
     pathMatch: "full",
   },
   {
-    path: "home",
+    path: "/home",
     loadComponent: () => import("./components/home/home.component").then((m) => m.HomeComponent)
     // data: { preload: true },
   },
   {
-    path: "no-permissions",
+    path: "/no-permissions",
     loadComponent: () => import("./components/no-permissions/no-permissions.component").then((m) => m.NoPermissionsComponent),
     // data: { preload: true },
   },
   {
-    path: "dashboard",
+    path: "/dashboard",
     loadChildren: () => import("./components/dashboard/routes").then((m) => m.DASHBOARD_ROUTES)
   },
   // {
