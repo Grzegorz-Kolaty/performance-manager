@@ -5,6 +5,24 @@
     <img alt="certumLogo" class="img" src="./assets/images/certum-logo.svg" />
   </a>
 
+	<a
+		[routerLink]="['/no-permissions']"
+		class="nav-link p-3"
+		routerLinkActive="active"
+	>
+		<i class="fs-4 bi bi-house fw-bold"></i>
+			<span class="fs-6 ms-3 text-dark">No-permis</span>
+	</a>
+
+	<a
+		[routerLink]="['/home']"
+		class="nav-link p-3"
+		routerLinkActive="active"
+	>
+		<i class="fs-4 bi bi-house fw-bold"></i>
+		<span class="fs-6 ms-3 text-dark">Home</span>
+	</a>
+
   <div class="d-flex flex-nowrap justify-content-center align-items-center">
     <app-language-selector></app-language-selector>
 

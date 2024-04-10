@@ -1,7 +1,7 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { UserService } from "../../../core/services";
 import { AsyncPipe, NgClass, NgOptimizedImage } from "@angular/common";
-import { RouterLink } from "@angular/router";
+import {RouterLink, RouterLinkActive} from "@angular/router";
 import { MsalService } from "@azure/msal-angular";
 import { AccountService } from "../../../microsoft/auth-library/services/msal.service.factory";
 import { LanguageSelectorComponent } from "../language-selector/language-selector.component";
@@ -17,6 +17,7 @@ import { LanguageSelectorComponent } from "../language-selector/language-selecto
     NgOptimizedImage,
     RouterLink,
     LanguageSelectorComponent,
+    RouterLinkActive,
   ],
 })
 export class NavComponent {
